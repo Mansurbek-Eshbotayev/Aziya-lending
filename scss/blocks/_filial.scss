@@ -1,0 +1,107 @@
+.filial {
+  padding-bottom: 120px;
+  @include media-max(768px) {
+    padding-bottom: 100px;
+  }
+
+  .filial__title {
+    color: $dark-color;
+    display: inline-block;
+    padding: 20px 30px;
+    font-size: 64px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 130%; /* 83.2px */
+    background-image: url(../../images/icon/big-bg.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    margin-bottom: 80px;
+    @include media-max(1024px) {
+      margin-bottom: 60px;
+    }
+    @include media-max(768px) {
+      font-size: 48px;
+      margin-bottom: 40px;
+    }
+    @include media-max(500px) {
+      font-size: 40px;
+      margin-bottom: 30px;
+      padding: 16px 26px;
+    }
+    @include media-max(440px) {
+      font-size: 28px;
+    }
+    @include media-max(330px) {
+      font-size: 26px;
+    }
+  }
+
+  .filial__list {
+    display: grid;
+    gap: 30px;
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: center;
+    @include media-max(1024px) {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
+
+  .filial__item {
+    width: 100%;
+    max-width: 585px;
+    padding: 40px;
+    border-radius: 30px;
+    background-color: $green-color;
+    background-image: url(../../images/icon/location.svg);
+    background-repeat: no-repeat;
+    background-position: right bottom;
+    &:nth-child(2) {
+      background-color: $blue-color;
+    }
+    @include media-max(768px) {
+      padding: 40px 20px 60px 20px;
+    }
+  }
+
+  .map__title {
+    color: $white-color;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: normal;
+    margin-bottom: 16px;
+  }
+
+  .map__text {
+    width: 100%;
+    max-width: 430px;
+    color: $white-color;
+    font-size: 18px;
+    line-height: 140%; /* 25.2px */
+    margin-bottom: 30px;
+  }
+
+  .map__cover {
+    display: flex;
+    @include media-max(500px) {
+      flex-direction: column;
+      align-items: start;
+    }
+  }
+
+  .map__link {
+    padding: 15px 30px;
+    color: $dark-color;
+    font-size: 18px;
+    line-height: normal;
+    border-radius: 12px;
+    background: $white-color;
+    &:first-child {
+      margin-right: 20px;
+      @include media-max(500px) {
+        margin-right: 0px;
+        margin-bottom: 16px;
+      }
+    }
+  }
+}

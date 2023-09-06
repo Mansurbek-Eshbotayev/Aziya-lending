@@ -1,5 +1,67 @@
-.container{
-  // width: your container width px here;
+.container {
+  width: 100%;
+  max-width: 1360px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.hero__container {
+  width: 100%;
+  max-width: 1360px;
+  margin: 0 auto;
+  padding: 0 20px;
+
+  @include media-max(768px) {
+    padding: 0;
+  }
+}
+
+.count__container {
+  width: 100%;
+  max-width: 1360px;
+  margin: 0 auto;
+  padding: 0 50px;
+
+  @include media-max(400px) {
+    padding: 0 30px;
+  }
+}
+
+.about__container {
+  width: 100%;
+  max-width: 1360px;
+  margin: 0 auto;
+  padding: 0 20px;
+
+  @include media-max(500px) {
+    padding: 0;
+  }
+}
+
+.teacher__container {
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.student__container {
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.filial__container {
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.question__container {
+  width: 100%;
+  max-width: 1240px;
   margin: 0 auto;
   padding: 0 20px;
 }
