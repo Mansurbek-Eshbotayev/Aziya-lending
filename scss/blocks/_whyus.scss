@@ -280,9 +280,25 @@
       max-width: 360px;
       padding: 38px 28px;
     }
+
+    @include media-max(400px) {
+      height: 380px;
+    }
   }
   .showing {
     display: block !important;
     opacity: 1 !important;
   }
+
+  // .slick-next {
+  //   display: none !important;
+  // }
+  // .slick-prev {
+  //   display: none !important;
+  // }
+  // .slick-dots {
+  //   // @include media-max(400px) {
+  //   //   margin-top: 25px;
+  //   // }
+  // }
 }

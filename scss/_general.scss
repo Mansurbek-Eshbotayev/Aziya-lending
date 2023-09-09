@@ -20,6 +20,10 @@ body {
   background-color: $body-color;
 }
 
+// .site-body {
+//   padding-bottom: 60px;
+// }
+
 img {
   vertical-align: middle;
 }
@@ -44,4 +48,8 @@ h3,
 p {
   margin: 0;
   padding: 0;
+}
+
+.slick-next {
+  display: none !important;
 }
