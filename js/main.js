@@ -1,33 +1,35 @@
-let elCarouselList = document.querySelector(".count__cover");
+const API_BASE_URL = "192.168.67.61";
+
+let elCarouselList = document.querySelector(".count__wrapper");
 let listFragment = new DocumentFragment();
 
 function GetCount() {
-  // elCarouselList.innerHTML = "";
+  elCarouselList.innerHTML = "";
 
-  fetch("http://172.20.10.5:8080/api/school-info")
+  fetch(`http://${API_BASE_URL}:8080/api/school-info`)
     .then((res) => res.json())
     .then((data) => {
       if (data) {
         // console.log(data);
-        let newItem = document.createElement("div");
-        newItem.setAttribute("class", "count__list");
+        let newItem = document.createElement("ul");
+        newItem.setAttribute("class", "count__cover");
         let info = `
-        <div class="count__item">
+        <li class="count__item">
               ${data.graduateAmount}
               <span> Выпускников </span>
-            </div>
-            <div class="count__item">
+            </li>
+            <li class="count__item">
             ${data.branchAmount}
               <span> Филлиала </span>
-            </div>
-            <div class="count__item">
+            </li>
+            <li class="count__item">
             ${data.studentAmount}
               <span> Учеников </span>
-            </div>
-            <div class="count__item">
+            </li>
+            <li class="count__item">
             ${data.mediumOptScore}
               <span> Средний балл ОРТ </span>
-            </div>
+            </li>
         `;
         newItem.innerHTML = info;
         listFragment.appendChild(newItem);
@@ -46,7 +48,7 @@ let VideoFragment = new DocumentFragment();
 function GetVideo() {
   elVideo.innerHTML = "";
 
-  fetch("http://172.20.10.5:8080/api/video", {
+  fetch(`http://${API_BASE_URL}:8080/api/video`, {
     method: "GET",
   })
     .then((res) => res.json())
@@ -72,7 +74,7 @@ function GetVideo() {
     .catch((err) => console.log(err));
 }
 
-GetVideo();
+// GetVideo();
 
 // Get Student
 let elStudentList = document.querySelector(".student__list");
@@ -81,7 +83,7 @@ let StudentFragment = new DocumentFragment();
 function GetStudent() {
   // elStudentList.innerHTML = "";
 
-  fetch("http://172.20.10.5:8080/api/student/get-all", {
+  fetch(`http://${API_BASE_URL}:8080/api/student/get-all`, {
     method: "GET",
   })
     .then((res) => res.json())
@@ -119,15 +121,15 @@ let elSNewsList = document.querySelector(".news__list");
 let NewsFragment = new DocumentFragment();
 
 function GetNews() {
-  // elSNewsList.innerHTML = "";
+  elSNewsList.innerHTML = "";
 
-  fetch("http://172.20.10.5:8080/api/news/get-all", {
+  fetch(`http://${API_BASE_URL}:8080/api/news/get-all`, {
     method: "GET",
   })
     .then((res) => res.json())
     .then((data) => {
       if (data) {
-        console.log(data);
+        // console.log(data);
         data.forEach((item) => {
           let newItem = document.createElement("li");
           newItem.setAttribute("class", "student__item");
@@ -157,6 +159,13 @@ function GetNews() {
         });
         elSNewsList.appendChild(NewsFragment);
       }
+      $(".news__list").slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        dots: true,
+        autoplay: true,
+        autoplaySpeed: 3000,
+      });
     })
     .catch((err) => console.log(err));
 }
@@ -243,3 +252,178 @@ elSecondOpenModalBtn.addEventListener("click", function () {
 elCloseModalBtn.addEventListener("click", function () {
   elModal.classList.remove("modal-on");
 });
+
+// form submit
+
+// Add contact
+
+let elForm = document.querySelector(".info__form");
+let elInputName = document.querySelector(".form__input--name");
+let elInputSurname = document.querySelector(".form__input--surname");
+let elInputClass = document.querySelector(".form__input--class");
+let elInputPhone = document.querySelector(".form__input--phone");
+
+elForm.addEventListener("submit", function (evt) {
+  evt.preventDefault();
+
+  let inputName = elInputName.value;
+  let inputSurname = elInputSurname.value;
+  let inputClass = elInputClass.value;
+  let inputPhone = elInputPhone.value;
+
+  if (
+    elInputName.value &&
+    elInputSurname.value &&
+    elInputClass.value &&
+    elInputPhone.value
+  ) {
+    fetch(`http://${API_BASE_URL}:8080/api/applicant`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        firstName: inputName,
+        lastName: inputSurname,
+        level: inputClass,
+        phoneNumber: inputPhone,
+      }),
+    })
+      .then((data) => {
+        if (data.status === 200) {
+          elModal.classList.remove("modal-on");
+          elInputName.value = "";
+          elInputSurname.value = "";
+          elInputClass.value = "";
+          elInputPhone.value = "";
+          alert("Ваша заявка отправлена!");
+        }
+      })
+      .catch((err) => console.log(err));
+  } else {
+    alert("Пожалуйста, заполните все данные!");
+  }
+});
+
+// get teacher
+
+let elTeacherList = document.querySelector(".teacher__list");
+let TeacherFragment = new DocumentFragment();
+
+function GetTeacher() {
+  elTeacherList.innerHTML = "";
+
+  fetch(`http://${API_BASE_URL}:8080/api/subject/get-all`, {
+    method: "GET",
+  })
+    .then((res) => res.json())
+    .then((data) => {
+      if (data) {
+        // console.log(data);
+        data.forEach((item) => {
+          let newItem = document.createElement("li");
+          newItem.setAttribute("class", "teacher__item");
+          let info = `
+          <button class="teacher__button" data-id=${item.id} id="butt">
+          ${item?.name}
+          </button>
+          `;
+          newItem.innerHTML = info;
+          TeacherFragment.appendChild(newItem);
+        });
+        elTeacherList.appendChild(TeacherFragment);
+      }
+    })
+    .catch((err) => console.log(err));
+}
+
+GetTeacher();
+
+// get user Tech
+function GetUser() {
+  fetch(`http://${API_BASE_URL}:8080/api/subject/get-all`, {
+    method: "GET",
+  })
+    .then((res) => res.json())
+    .then((data) => {
+      if (data) {
+        console.log(data[0]);
+        elTeacherInfo.innerHTML = "";
+        let newItem = document.createElement("div");
+        newItem.setAttribute("class", "right__cover");
+        let info = `
+              <div class="right__wrap">
+                <img
+                  class="right__img"
+                  src="data:image/jpeg;base64,${data[0]?.teacher?.image?.data}"
+                  alt="teacher img"
+                />
+
+                <div class="right__info">
+                  <h3 class="right__title">${data[0]?.teacher?.firstName}</h3>
+                  <span class="right__desc"> ${data[0]?.name} </span>
+                  <p class="right__text">
+                  ${data[0]?.teacher?.description}
+                  </p>
+                </div>
+              </div>
+              `;
+        newItem.innerHTML = info;
+        InfoFragment.appendChild(newItem);
+      }
+      elTeacherInfo.appendChild(InfoFragment);
+    })
+    .catch((err) => console.log(err));
+}
+
+GetUser();
+
+// teacher info
+let elTeacherBtn = document.querySelector(".teacher__list");
+let elTeacherInfo = document.querySelector(".teacher__right");
+let InfoFragment = new DocumentFragment();
+
+if (elTeacherBtn) {
+  elTeacherBtn.addEventListener("click", function (evt) {
+    var elementName = evt.target.textContent.trim();
+
+    fetch(`http://${API_BASE_URL}:8080/api/subject/get-all`, {
+      method: "GET",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data) {
+          console.log(data);
+          elTeacherInfo.innerHTML = "";
+          data?.forEach((e) => {
+            if (e?.name === elementName) {
+              console.log(e.teacher);
+              let newItem = document.createElement("div");
+              newItem.setAttribute("class", "right__cover");
+              let info = `
+              <div class="right__wrap">
+                <img
+                  class="right__img"
+                  src="data:image/jpeg;base64,${e?.teacher?.image?.data}"
+                  alt="teacher img"
+                />
+
+                <div class="right__info">
+                  <h3 class="right__title">${e?.teacher?.firstName}</h3>
+                  <span class="right__desc"> ${elementName} </span>
+                  <p class="right__text">
+                  ${e?.teacher?.description}
+                  </p>
+                </div>
+              </div>
+              `;
+              newItem.innerHTML = info;
+              InfoFragment.appendChild(newItem);
+            }
+            elTeacherInfo.appendChild(InfoFragment);
+          });
+        }
+      })
+      .catch((err) => console.log(err));
+  });
+}
