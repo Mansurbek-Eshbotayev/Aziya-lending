@@ -150,8 +150,9 @@
     .drop__innner {
       display: flex;
       align-items: flex-start;
-      justify-content: space-between;
+      justify-content: space-around;
       @include media-max(650px) {
+        justify-content: space-between;
         margin-bottom: 36px;
         text-align: center;
       }

@@ -1,4 +1,4 @@
-const API_BASE_URL = "192.168.67.61";
+const API_BASE_URL = "176.57.215.14";
 
 let elCarouselList = document.querySelector(".count__wrapper");
 let listFragment = new DocumentFragment();
@@ -89,7 +89,7 @@ function GetStudent() {
     .then((res) => res.json())
     .then((data) => {
       if (data) {
-        // console.log(data);
+        console.log(data);
         data.forEach((item) => {
           let newItem = document.createElement("li");
           newItem.setAttribute("class", "student__item");
@@ -101,7 +101,7 @@ function GetStudent() {
             alt="student"
           />
           <div class="item__info">
-            <h3 class="item__title">${item.fullName}</h3>
+            <h3 class="item__title">${item.firstName}</h3>
             <p class="item__text">Ученик ${item.level} класса</p>
           </div>
           `;
@@ -319,7 +319,7 @@ function GetTeacher() {
     .then((res) => res.json())
     .then((data) => {
       if (data) {
-        // console.log(data);
+        console.log(data);
         data.forEach((item) => {
           let newItem = document.createElement("li");
           newItem.setAttribute("class", "teacher__item");
@@ -397,16 +397,17 @@ if (elTeacherBtn) {
           elTeacherInfo.innerHTML = "";
           data?.forEach((e) => {
             if (e?.name === elementName) {
-              console.log(e.teacher);
+              // console.log(e.teacher.image.data);
               let newItem = document.createElement("div");
               newItem.setAttribute("class", "right__cover");
               let info = `
               <div class="right__wrap">
+               
                 <img
-                  class="right__img"
-                  src="data:image/jpeg;base64,${e?.teacher?.image?.data}"
-                  alt="teacher img"
-                />
+                class="right__img"
+                src="data:image/jpeg;base64,${e?.teacher?.image?.data}"
+                alt="teacher"
+              />
 
                 <div class="right__info">
                   <h3 class="right__title">${e?.teacher?.firstName}</h3>
