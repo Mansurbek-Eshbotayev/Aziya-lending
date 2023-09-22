@@ -89,7 +89,7 @@ function GetStudent() {
     .then((res) => res.json())
     .then((data) => {
       if (data) {
-        console.log(data);
+        // console.log(data);
         data.forEach((item) => {
           let newItem = document.createElement("li");
           newItem.setAttribute("class", "student__item");
@@ -319,7 +319,7 @@ function GetTeacher() {
     .then((res) => res.json())
     .then((data) => {
       if (data) {
-        console.log(data);
+        // console.log(data);
         data.forEach((item) => {
           let newItem = document.createElement("li");
           newItem.setAttribute("class", "teacher__item");
@@ -347,7 +347,7 @@ function GetUser() {
     .then((res) => res.json())
     .then((data) => {
       if (data) {
-        console.log(data[0]);
+        // console.log(data[0]);
         elTeacherInfo.innerHTML = "";
         let newItem = document.createElement("div");
         newItem.setAttribute("class", "right__cover");
@@ -393,7 +393,7 @@ if (elTeacherBtn) {
       .then((res) => res.json())
       .then((data) => {
         if (data) {
-          console.log(data);
+          // console.log(data);
           elTeacherInfo.innerHTML = "";
           data?.forEach((e) => {
             if (e?.name === elementName) {
