@@ -74,7 +74,7 @@ function GetVideo() {
     .catch((err) => console.log(err));
 }
 
-// GetVideo();
+GetVideo();
 
 // Get Student
 let elStudentList = document.querySelector(".student__list");
@@ -101,8 +101,8 @@ function GetStudent() {
             alt="student"
           />
           <div class="item__info">
-            <h3 class="item__title">${item.firstName}</h3>
-            <p class="item__text">Ученик ${item.level} класса</p>
+            <h3 class="item__title">${item.firstName} ${item.lastName}</h3>
+            <p class="item__text">${item.level} класс</p>
           </div>
           `;
           newItem.innerHTML = info;
@@ -164,7 +164,7 @@ function GetNews() {
         slidesToScroll: 1,
         dots: true,
         autoplay: true,
-        autoplaySpeed: 3000,
+        autoplaySpeed: 5000,
       });
     })
     .catch((err) => console.log(err));
@@ -319,7 +319,7 @@ function GetTeacher() {
     .then((res) => res.json())
     .then((data) => {
       if (data) {
-        // console.log(data);
+        console.log(data);
         data.forEach((item) => {
           let newItem = document.createElement("li");
           newItem.setAttribute("class", "teacher__item");

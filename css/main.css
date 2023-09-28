@@ -351,6 +351,9 @@ body {
   font-weight: 400;
   background-color: #f3f5f8;
 }
+body ::-webkit-scrollbar {
+  display: none;
+}
 
 img {
   vertical-align: middle;
@@ -1394,6 +1397,9 @@ p {
 }
 .teacher .teacher__left {
   width: 100%;
+  height: 100%;
+  max-height: 650px;
+  overflow-y: scroll;
   max-width: 483px;
   margin-right: 20px;
 }
@@ -1403,6 +1409,11 @@ p {
     margin-bottom: 30px;
   }
 }
+@media only screen and (max-width: 500px) {
+  .teacher .teacher__left {
+    height: 320px;
+  }
+}
 .teacher .teacher__left .teacher__item {
   margin-bottom: 30px;
 }
@@ -1410,6 +1421,7 @@ p {
   margin-bottom: 0;
 }
 .teacher .teacher__left .teacher__button {
+  display: inline-block;
   width: 100%;
   text-align: start;
   color: #0b0a08;
@@ -1627,13 +1639,9 @@ p {
 }
 .student .student__img {
   width: 100%;
-  height: 420px;
+  height: 100%;
+  max-height: 420px;
   border-radius: 30px 30px 0 0;
-}
-@media only screen and (max-width: 400px) {
-  .student .student__img {
-    height: 300px;
-  }
 }
 .student .item__info {
   padding: 11px 15px 12px 15px;
