@@ -320,17 +320,19 @@ function GetTeacher() {
     .then((data) => {
       if (data) {
         console.log(data);
-        data.forEach((item) => {
-          let newItem = document.createElement("li");
-          newItem.setAttribute("class", "teacher__item");
-          let info = `
+        data
+          .filter((e) => e.name !== null && e.teacher !== null)
+          .forEach((item) => {
+            let newItem = document.createElement("li");
+            newItem.setAttribute("class", "teacher__item");
+            let info = `
           <button class="teacher__button" data-id=${item.id} id="butt">
           ${item?.name}
           </button>
           `;
-          newItem.innerHTML = info;
-          TeacherFragment.appendChild(newItem);
-        });
+            newItem.innerHTML = info;
+            TeacherFragment.appendChild(newItem);
+          });
         elTeacherList.appendChild(TeacherFragment);
       }
     })
