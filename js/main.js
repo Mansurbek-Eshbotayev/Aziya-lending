@@ -319,7 +319,7 @@ function GetTeacher() {
     .then((res) => res.json())
     .then((data) => {
       if (data) {
-        console.log(data);
+        // console.log(data);
         data
           .filter((e) => e.name !== null && e.teacher !== null)
           .forEach((item) => {
