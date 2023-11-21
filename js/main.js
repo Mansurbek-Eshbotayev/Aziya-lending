@@ -97,7 +97,7 @@ function GetStudent() {
           <div>
           <img
             class="student__img"
-            src="data:image/jpeg;base64,${item.image.data}"
+            src="http://176.57.215.14/images/${item.image.path}"
             alt="student"
           />
           <div class="item__info">
@@ -148,7 +148,7 @@ function GetNews() {
           <div class="news__cover">
             <img
               class="news__img"
-              src="data:image/jpeg;base64,${item?.image?.data}"
+              src="http://176.57.215.14/images/${item?.image?.path}"
               alt="news"
             />
           </div>
@@ -226,12 +226,18 @@ elBoxFive.addEventListener("click", function () {
 elHeaderDroop = document.querySelector(".header__drop");
 elOpenDroopBtn = document.querySelector(".sent__btn");
 elCloseDroopBtn = document.querySelector(".drop__exit");
+// elDropInfo = document.querySelector(".header__drop");
 
 elOpenDroopBtn.addEventListener("click", function () {
   elHeaderDroop.classList.add("header__drop--on");
 });
 elCloseDroopBtn.addEventListener("click", function () {
   elHeaderDroop.classList.remove("header__drop--on");
+});
+elHeaderDroop.addEventListener("click", function (evt) {
+  if (evt.target.className === "header__drop drop header__drop--on") {
+    elHeaderDroop.classList.remove("header__drop--on");
+  }
 });
 
 // Modl form
@@ -357,7 +363,7 @@ function GetUser() {
               <div class="right__wrap">
                 <img
                   class="right__img"
-                  src="data:image/jpeg;base64,${data[0]?.teacher?.image?.data}"
+                  src="http://176.57.215.14/images/${data[0]?.teacher?.image?.path}"
                   alt="teacher img"
                 />
 
@@ -407,7 +413,7 @@ if (elTeacherBtn) {
                
                 <img
                 class="right__img"
-                src="data:image/jpeg;base64,${e?.teacher?.image?.data}"
+                src="http://176.57.215.14/images/${e?.teacher?.image?.path}"
                 alt="teacher"
               />
 
