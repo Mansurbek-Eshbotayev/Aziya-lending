@@ -97,7 +97,11 @@ function GetStudent() {
           <div>
           <img
             class="student__img"
+<<<<<<< HEAD
             src="http://176.57.215.14/images/${item.image.path}"
+=======
+            src="http://${API_BASE_URL}/images/${item.image.path}"
+>>>>>>> 2cac670b56b194abdcb82ab062f5ec36ac9b95ea
             alt="student"
           />
           <div class="item__info">
@@ -148,7 +152,11 @@ function GetNews() {
           <div class="news__cover">
             <img
               class="news__img"
+<<<<<<< HEAD
               src="http://176.57.215.14/images/${item?.image?.path}"
+=======
+              src="http://${API_BASE_URL}/images/${item.image.path}"
+>>>>>>> 2cac670b56b194abdcb82ab062f5ec36ac9b95ea
               alt="news"
             />
           </div>
@@ -226,7 +234,6 @@ elBoxFive.addEventListener("click", function () {
 elHeaderDroop = document.querySelector(".header__drop");
 elOpenDroopBtn = document.querySelector(".sent__btn");
 elCloseDroopBtn = document.querySelector(".drop__exit");
-// elDropInfo = document.querySelector(".header__drop");
 
 elOpenDroopBtn.addEventListener("click", function () {
   elHeaderDroop.classList.add("header__drop--on");
@@ -363,7 +370,11 @@ function GetUser() {
               <div class="right__wrap">
                 <img
                   class="right__img"
+<<<<<<< HEAD
                   src="http://176.57.215.14/images/${data[0]?.teacher?.image?.path}"
+=======
+                  src="http://${API_BASE_URL}/images/${item.image.path}"
+>>>>>>> 2cac670b56b194abdcb82ab062f5ec36ac9b95ea
                   alt="teacher img"
                 />
 
@@ -413,7 +424,11 @@ if (elTeacherBtn) {
                
                 <img
                 class="right__img"
+<<<<<<< HEAD
                 src="http://176.57.215.14/images/${e?.teacher?.image?.path}"
+=======
+                src="http://${API_BASE_URL}/images/${item.image.path}"
+>>>>>>> 2cac670b56b194abdcb82ab062f5ec36ac9b95ea
                 alt="teacher"
               />
 
