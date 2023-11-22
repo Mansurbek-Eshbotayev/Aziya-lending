@@ -12,7 +12,7 @@
     font-size: 64px;
     font-weight: 700;
     line-height: 130%; /* 83.2px */
-    background-image: url(../../image/icon/white-bg.png);
+    background-image: url(../../images/icon/white-bg.png);
     background-repeat: no-repeat;
     background-size: contain;
     margin-bottom: 60px;
@@ -56,7 +56,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    background-image: url(../../image/icon/bg-1.png);
+    background-image: url(../../images/icon/bg-1.png);
     background-repeat: no-repeat;
     background-size: contain;
     background-position: bottom;
@@ -65,13 +65,13 @@
     &:nth-child(1) {
       background: #b66ad0;
       position: relative;
-      background-image: url(../../image/icon/bg-1.png);
+      background-image: url(../../images/icon/bg-1.png);
       background-repeat: no-repeat;
       background-size: contain;
       background-position: bottom;
 
       .item__box {
-        background-image: url(../../image/icon/item1.svg);
+        background-image: url(../../images/icon/item1.svg);
       }
       &:hover {
         .item__box {
@@ -84,10 +84,10 @@
     &:nth-child(2) {
       background-color: #58cf7a;
       position: relative;
-      background-image: url(../../image/icon/bg-2.png);
+      background-image: url(../../images/icon/bg-2.png);
 
       .item__box {
-        background-image: url(../../image/icon/item2.svg);
+        background-image: url(../../images/icon/item2.svg);
       }
       &:hover {
         .item__box {
@@ -100,10 +100,10 @@
     &:nth-child(3) {
       background-color: #19caf0;
       position: relative;
-      background-image: url(../../image/icon/bg-3.png);
+      background-image: url(../../images/icon/bg-3.png);
 
       .item__box {
-        background-image: url(../../image/icon/item3.svg);
+        background-image: url(../../images/icon/item3.svg);
       }
       &:hover {
         .item__box {
@@ -116,10 +116,10 @@
     &:nth-child(4) {
       background-color: #ddb449;
       position: relative;
-      background-image: url(../../image/icon/bg-4.png);
+      background-image: url(../../images/icon/bg-4.png);
 
       .item__box {
-        background-image: url(../../image/icon/item4.svg);
+        background-image: url(../../images/icon/item4.svg);
       }
       &:hover {
         .item__box {
@@ -132,10 +132,10 @@
     &:nth-child(5) {
       background-color: $dark-color;
       position: relative;
-      background-image: url(../../image/icon/bg-5.png);
+      background-image: url(../../images/icon/bg-5.png);
 
       .item__box {
-        background-image: url(../../image/icon/item5.svg);
+        background-image: url(../../images/icon/item5.svg);
       }
       &:hover {
         .item__box {
@@ -193,7 +193,7 @@
     border: none;
     padding: 0;
     background-color: transparent;
-    background-image: url(../../image/icon/plus-btn.svg);
+    background-image: url(../../images/icon/plus-btn.svg);
     background-repeat: no-repeat;
     background-size: contain;
     border-radius: 100px;
@@ -289,16 +289,4 @@
     display: block !important;
     opacity: 1 !important;
   }
-
-  // .slick-next {
-  //   display: none !important;
-  // }
-  // .slick-prev {
-  //   display: none !important;
-  // }
-  // .slick-dots {
-  //   // @include media-max(400px) {
-  //   //   margin-top: 25px;
-  //   // }
-  // }
 }
