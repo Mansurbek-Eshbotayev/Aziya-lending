@@ -97,7 +97,7 @@ function GetStudent() {
           <div>
           <img
             class="student__img"
-            src="http://${API_BASE_URL}/images/${item.image.path}"
+            src="http://${API_BASE_URL}/image/${item.image.path}"
             alt="student"
           />
           <div class="item__info">
@@ -148,7 +148,7 @@ function GetNews() {
           <div class="news__cover">
             <img
               class="news__img"
-              src="http://${API_BASE_URL}/images/${item.image.path}"
+              src="http://${API_BASE_URL}/image/${item.image.path}"
               alt="news"
             />
           </div>
@@ -362,7 +362,7 @@ function GetUser() {
               <div class="right__wrap">
                 <img
                   class="right__img"
-                  src="http://176.57.215.14/images/${data[0]?.teacher?.image?.path}"
+                  src="http://176.57.215.14/image/${data[0]?.teacher?.image?.path}"
                   alt="teacher img"
                 />
 
@@ -412,7 +412,7 @@ if (elTeacherBtn) {
                
                 <img
                 class="right__img"
-                src="http://176.57.215.14/images/${e?.teacher?.image?.path}"
+                src="http://176.57.215.14/image/${e?.teacher?.image?.path}"
                 alt="teacher"
               />
 
